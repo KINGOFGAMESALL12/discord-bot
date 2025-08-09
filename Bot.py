@@ -1,4 +1,6 @@
-# bot.py\
+# bot.py
+from flask import Flask
+import threading
 import os
 import json
 import asyncio
@@ -12,7 +14,17 @@ import discord
 from discord.ext import commands, tasks
 import pytz
 load_dotenv()
+app = Flask('')
 
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run_web():
+    app.run(host='0.0.0.0', port=8080)
+
+t = threading.Thread(target=run_web)
+t.start()
 # ==== CONFIG from .env ====
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
