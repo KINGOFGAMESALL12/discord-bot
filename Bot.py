@@ -8,7 +8,7 @@ import hashlib
 import aiohttp
 import feedparser
 from bs4 import BeautifulSoup
-from datetime import datetime, timezone, timedeltaф
+from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
 import discord
 from discord.ext import commands, tasks
@@ -398,3 +398,4 @@ async def on_ready():
 
 if __name__ == "__main__":
     bot.run(DISCORD_TOKEN)
+
