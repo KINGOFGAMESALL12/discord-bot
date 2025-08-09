@@ -1,4 +1,4 @@
-# bot.py
+# bot.py\
 import os
 import json
 import asyncio
@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 import discord
 from discord.ext import commands, tasks
 import pytz
-
 load_dotenv()
 
 # ==== CONFIG from .env ====
@@ -258,7 +257,7 @@ async def on_message(message: discord.Message):
     await bot.process_commands(message)
 
 # ==== RSS/autopost loop (1 minute) ====
-@tasks.loop(minutes=1.0)
+@tasks.loop(minutes=5.0)
 async def rss_loop():
     if not bot.is_ready():
         return
